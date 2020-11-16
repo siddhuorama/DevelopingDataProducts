@@ -1,0 +1,64 @@
+---
+title: '"I Do And I Understand"'
+subtitle: "Playing Around With Probability Distributions"
+author: "Siddharth Samant"
+date: "10/11/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+## The Idea
+
+```{r packages, comment = " "}
+library(ggplot2)
+```
+"I hear and I forget.  
+I see and I remember.  
+I do and I understand."  
+\- **Confucius** 
+
+![](confucius.jpeg)
+\newline
+  
+**Our Idea**: Allowing users to play around with common probability distributions will aid their understanding of those distributions.
+
+## The Implementation
+
+- Our app has 3 panels - one for each of the following distributions:
+
+  - **Normal**
+  - **Uniform**
+  - **Poisson**
+  
+- In each panel, we provide options for the user to play around with the distribution
+- The changes are implemented when the user clicks the **Display** button
+
+## The Options
+
+The options that the user can change for each distribution are as follows:
+
+- **Normal**: Number of observations, mean, standard deviation
+
+- **Uniform**: Number of observations, minimum value, range of the distribution
+
+- **Poisson**: Number of observations, lambda
+
+## Sample App Output
+
+We show one of the many possible outputs displayed by our app below - this is for a **Normal** distribution with a mean of 10, a standard deviation of 5, and 100 observations.
+
+```{r plot, fig.height=3, fig.width=5, echo = TRUE, fig.align='center'}
+ggplot(data.frame(Histogram = rnorm(100,10,5)), aes(Histogram)) +
+        geom_histogram(binwidth = 1, boundary = 0,
+                       fill = "white", color = "seagreen4")
+```
+
+
+
+
+
+
+
